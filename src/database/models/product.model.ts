@@ -35,7 +35,7 @@ const ProductModel: ProductSequelizeModelCreator = db.define('Product', {
 User.hasMany(Order, { foreignKey: 'userId' });
 Order.belongsTo(User, { foreignKey: 'userId' });
 
-Order.hasMany(ProductModel, { foreignKey: 'orderId', as: 'productIds' });
+Order.hasMany(ProductModel, { foreignKey: 'orderId', as: 'productsIds' });
 ProductModel.belongsTo(Order, { foreignKey: 'orderId' });
 
 export default ProductModel;

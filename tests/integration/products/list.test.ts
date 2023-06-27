@@ -11,7 +11,7 @@ chai.use(chaiHttp);
 
 describe('GET /products', function () { 
   beforeEach(function () { sinon.restore(); });
-  it('Happy case: getting all products', async function () {
+  it('Getting all products', async function () {
     const mockedProductsList = ProductModel.build(mockedProducts[0])
     sinon.stub(ProductModel, 'findAll').resolves([mockedProductsList])
     const response = await chai.request(app).get('/products')

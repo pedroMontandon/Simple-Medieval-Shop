@@ -12,7 +12,7 @@ chai.use(chaiHttp);
 
 describe('POST /products', function () { 
   beforeEach(function () { sinon.restore(); });
-  it('Happy case: creating a product', async function () {
+  it('Creating a product', async function () {
     const mockedProduct = ProductModel.build(newMockedProduct)
     sinon.stub(ProductModel, 'create').resolves(mockedProduct)
     const response = await chai.request(app).post('/products')
