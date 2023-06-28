@@ -3,6 +3,7 @@ export default function mapStatusHTTP(type: string): number {
     INVALID_DATA: 400,
     UNAUTHORIZED: 401,
     NOT_FOUND: 404,
+    UNPROCESSABLE_ENTITY: 422,
     SUCCESSFUL_RETRIEVAL: 200,
     SUCCESSFUL_CREATION: 201,
   };
