@@ -92,7 +92,7 @@ describe('POST /orders', function () {
     sinon.stub(jwtUtils, 'verify').returns({id: 1, username: 'Chapolin'});
     sinon.stub(UserModel, 'findOne').resolves(userMockModel);
     sinon.stub(OrderModel, 'findOne').resolves(tokenModelMocked);
-    sinon.stub(OrderModel, 'create').resolves();
+    sinon.stub(OrderModel, 'create').resolves(tokenModelMocked);
     sinon.stub(ProductModel, 'update').resolves();
     const response = await chai.request(app).post('/orders')
       .send({ userId: 1, productIds: [2] }).set('Authorization', 'validToken');

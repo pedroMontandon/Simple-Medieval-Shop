@@ -40,8 +40,8 @@ async function getAllOrders(): Promise<ServiceResponse<OrderSequelizeModel[]>> {
 
 async function createOrder(userId: number, productIds: number[])
   : Promise<ServiceResponse<unknown>> {
+  const { dataValues: { id } } = await OrderModel.create({ userId });
   productIds.map(async (productId) => {
-    const { dataValues: { id } } = await OrderModel.create({ userId });
     await ProductModel.update({ orderId: id }, { where: { id: productId } });
   });
   return { status: 'SUCCESSFUL_CREATION', data: { userId, productIds } };
